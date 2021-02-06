@@ -6,29 +6,50 @@ echo "Installing required rpms for oracle and supporting configuration"
 dnf install -yyy \
   autofs \
   bc \
+  bc \
   binutils \
   elfutils-libelf \
   elfutils-libelf-devel \
   fontconfig-devel \
+  gcc \
+  gcc-c++ \
   glibc \
   glibc-devel \
+  glibc-devel.i686 \
+  glibc.i686 \
   ksh \
   libaio \
   libaio-devel \
+  libaio-devel.i686 \
+  libaio.i686 \
   libgcc \
+  libgcc.i686 \
   libibverbs \
   libnsl \
   libnsl2 \
   libnsl2-devel \
+  libnsl2.i686 \
+  libnsl.i686 \
   librdmacm \
+  librdmacm-devel \
   libstdc++ \
   libstdc++-devel \
+  libstdc++-devel.i686 \
+  libstdc++.i686 \
   libX11 \
+  libX11.i686 \
   libXau \
+  libXau.i686 \
   libxcb \
+  libxcb.i686 \
+  libXext \
+  libXext.i686 \
   libXi \
+  libXi.i686 \
   libXrender \
+  libXrender-devel \
   libXtst \
+  libXtst.i686 \
   make \
   net-tools \
   nfs-utils \
@@ -36,10 +57,15 @@ dnf install -yyy \
   strace \
   sudo \
   sysstat \
+  targetcli \
+  unixODBC \
+  unixODBC-devel \
   unzip \
   xauth \
   xorg-x11-utils \
-  zip
+  zip \
+  zlib-devel \
+  zlib-devel.i686
 
 # install centos 7 packages
 dnf install -yyy http://mirror.centos.org/centos/7/os/x86_64/Packages/compat-libstdc++-33-3.2.3-72.el7.x86_64.rpm
