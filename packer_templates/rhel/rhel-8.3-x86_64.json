@@ -118,7 +118,7 @@
         "{{template_dir}}/../centos/scripts/networking.sh",
         "{{template_dir}}/../_common/sshd.sh",
         "{{template_dir}}/../_common/vagrant.sh",
-        "{{template_dir}}/../_common/rhel-8-register.sh",
+        "/data/vrk/rhel-8-register.sh",
         "{{template_dir}}/../_common/virtualbox.sh",
         "{{template_dir}}/../centos/scripts/cleanup.sh",
         "{{template_dir}}/../_common/rhel-8-sysprep.sh",
