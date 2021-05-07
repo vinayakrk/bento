@@ -100,7 +100,7 @@
   ],
   "post-processors": [
     {
-      "output": "{{ user `build_directory` }}/{{user `box_basename`}}.{{.Provider}}.box",
+      "output": "{{ user `build_directory` }}/{{user `box_basename`}}.box",
       "type": "vagrant"
     }
   ],
@@ -116,13 +116,13 @@
       "expect_disconnect": true,
       "scripts": [
         "{{template_dir}}/../centos/scripts/networking.sh",
-        "{{template_dir}}/../_common/motd.sh",
         "{{template_dir}}/../_common/sshd.sh",
         "{{template_dir}}/../_common/vagrant.sh",
+        "/data/vrk/rhel-register.sh",
         "{{template_dir}}/../_common/virtualbox.sh",
-        "{{template_dir}}/../_common/vmware.sh",
-        "{{template_dir}}/../_common/parallels.sh",
         "{{template_dir}}/../centos/scripts/cleanup.sh",
+        "{{template_dir}}/../_common/rhel-6-sysprep.sh",
+         "{{template_dir}}/../_common/rhel-unregister.sh",
         "{{template_dir}}/../_common/minimize.sh"
       ],
       "type": "shell"
@@ -145,8 +145,8 @@
     "iso_name": "rhel-server-6.10-x86_64-dvd.iso",
     "ks_path": "6/ks.cfg",
     "memory": "1024",
-    "mirror": "http://YOU-MUST-PROVIDE-YOUR-OWN-ISO.sorry",
-    "mirror_directory": "rhel",
+    "mirror": "http://zen.vinayak.net",
+    "mirror_directory": "iso",
     "name": "rhel-6.10",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "rhel-6.10-x86_64",
