@@ -9,18 +9,15 @@ cmd=/bin/true
 if [[ -f $relf ]]
 then
   mjrel=$(awk '{ print $(NF-1) }' $relf|awk -F. '{ print $1 }')
+  subscription-manager register --username="$rhel_username" --password="$rhel_password" --auto-attach
   if [[ $mjrel -ge 8 ]]
-    then
-    cmd=/usr/bin/dnf
-  elif [[ $mjrel -le 7 ]]
-    then
-    cmd=/usr/bin/yum
-  fi
-  if [[ -n "$rhel_username" ]] && [[ -n "$rhel_password" ]]
   then
-    subscription-manager register --username="$rhel_username" --password="$rhel_password" --auto-attach
+    subscription-manager repos --enable "rhel-8-for-x86_64-baseos-rpms" --enable "rhel-8-for-x86_64-appstream-rpms"
+    /usr/bin/dnf update -yyy
+    reboot
+  else
     subscription-manager repos --enable "rhel-?-server-optional-rpms" --enable "rhel-?-server-extras-rpms"
-    $cmd update -yyy
+    /usr/bin/yum update -yyy
     reboot
   fi
 fi
